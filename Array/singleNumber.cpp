@@ -1,4 +1,5 @@
 // Leetcode: https://leetcode.com/problems/single-number/
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -6,7 +7,6 @@ using namespace std;
 // &nums -> pass by reference
 int singleNumber(vector<int> &nums) {
     int ans=0;
-
     for (int val : nums) {
         ans ^= val;
     }
