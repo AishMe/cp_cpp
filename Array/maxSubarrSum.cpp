@@ -3,12 +3,18 @@
 using namespace std;
 
 // TC: O(n^2)
-int brute_force(int n) {
-    return 0;
+int brute_force(int arr, int n) {
+    int sum=0;
+    for (int st=0; st<n; st++) {
+        for (int end=st; end<n; end++) {
+            sum += end;
+        }
+    }
+    return sum;
 }
 
 // TC: O(n)
-int kadane_algo(int n) {
+int kadane_algo(int arr, int n) {
     return 0;
 }
 
@@ -24,8 +30,8 @@ int main() {
         cin >> arr[i];
     }
 
-    printf("Brute force result: %d", brute_force(*arr));
-    printf("Kadane algo result: %d", kadane_algo(*arr));
+    printf("Brute force result: %d", brute_force(*arr, size));
+    printf("Kadane algo result: %d", kadane_algo(*arr, size));
 
     return 0;
 }
