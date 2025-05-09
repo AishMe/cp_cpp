@@ -38,8 +38,8 @@ int main() {
         cin >> arr[i];
     }
 
-    printf("Brute force result: %d", brute_force(arr, size));
-    printf("Kadane algo result: %d", kadane_algo(arr, size));
+    printf("Brute force result: %d\n", brute_force(arr, size));
+    printf("Kadane algo result: %d\n", kadane_algo(arr, size));
 
     return 0;
 }
