@@ -6,7 +6,7 @@ using namespace std;
 vector<int> brute_force(vector<int> nums, int n, int target) {
     vector<int> res;
     for (int i=0; i<n; i++) {
-        for (int j=i+1; j<i; j++) {
+        for (int j=i+1; j<n; j++) {
             if (nums[i] + nums[j] == target) {
                 res.push_back(i);
                 res.push_back(j);
@@ -16,9 +16,21 @@ vector<int> brute_force(vector<int> nums, int n, int target) {
     return res;
 }
 
-vector<int> optimal(vector<int> arr, int n, int target) {
+// TC: O(N)
+// Approach: 2 pointers
+// Making use of the array being already sorted
+vector<int> optimal(vector<int> nums, int n, int target) {
     vector<int> res;
-    return res;
+    int i=0, j=n-1;
+    while (i<j) {
+        if (nums[i] + nums[j] < target) i++;
+        else if (nums[i] + nums[j] > target) j--;
+        else {
+            res.push_back(i);
+            res.push_back(j);
+            return res;
+        }
+    }
 }
 
 int main() {
