@@ -17,8 +17,22 @@ int brute_force(vector<int>& nums) {
     return -1;
 }
 
+// TC: O(nlogn) for sorting and O(n) for approach -> total= O(nlogn)
 int optimized(vector<int>& nums) {
-    return 0;
+    int n = nums.size();
+    sort(nums.begin(), nums.end());
+
+    int freq=1, ans=nums[0];
+    for (int i=1; i<n; i++) {
+        if (nums[i] == nums[i-1]) freq++;
+        else {
+            freq=1;
+            ans = nums[i];
+        }
+
+        if (freq > n/2) return ans;
+    }
+    return -1;
 }
 
 int moores_algo(vector<int>& nums) {
