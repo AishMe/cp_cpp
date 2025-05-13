@@ -5,9 +5,9 @@ using namespace std;
 // TC: O(N^2)
 int brute_force(vector<int>& nums) {
     int n = nums.size();
-    for (int val:nums) {
+    for (int val : nums) {
         int freq=0;
-        for (int el:nums) {
+        for (int el : nums) {
             if (el == val) {
                 freq++;
             }
@@ -36,7 +36,20 @@ int optimized(vector<int>& nums) {
 }
 
 int moores_algo(vector<int>& nums) {
-    return 0;
+    int n = nums.size();
+    int freq=0, ans=-1;
+    for (int i=0; i<n; i++) {
+        if (freq == 0) ans = nums[i];
+        if (ans == nums[i]) freq++;
+        else freq--;
+    }
+
+    int count=0;
+    for (int val:nums) {
+        if (val == ans) count++;
+    }
+    if (count > n/2) return ans;
+    else return -1;
 }
 
 int main() {
